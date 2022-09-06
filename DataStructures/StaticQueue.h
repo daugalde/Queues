@@ -1,5 +1,7 @@
 #pragma once
 #include <iostream>
+#include "List.h"
+#include "Node.h"
 using namespace std;
 
 class StaticQueue
@@ -7,20 +9,19 @@ class StaticQueue
 private:
     int front;
     int back;
-    int StaticQueueArray[5];
-
+    PointerNode StaticQueueArray[5];
 
 public:
     StaticQueue() {
         front = 0;// First In
         back = -1;// Last
         for (int i = 0; i < 5; i++) {
-            StaticQueueArray[i] = 0;
+            StaticQueueArray[i] = NULL;
         }
     }
 
-    bool IsEmpty() { return back < front; }
-    void Push(int v);
-    void Pop();
+    bool IsEmpty();
+    void Push(PointerNode node);
+    PointerNode Pop();
     void Display();
 };

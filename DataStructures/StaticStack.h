@@ -1,26 +1,25 @@
 #pragma once
 #include <iostream>
+#include <string>
 using namespace std;
 
 class StaticStack
 {
 private:
     int Top;
-    int StacticStackArray[5];
-
-
+    string StacticStackArray[5];
 
 public:
 
     StaticStack() {
         Top = -1;
         for (int i = 0; i < 5; i++) {
-            StacticStackArray[i] = 0;
+            StacticStackArray[i] = "";
         }
     }
 
     bool IsEmpty() { return Top < 0; }
-    void Push(int v);     //insercion
-    void Pop();          //borrado
+    void Push(string v);     //insercion
+    string Pop();          //borrado
     void Display();      //temporal 
 };

@@ -1,9 +1,10 @@
 #include <iostream>
 #include"StaticStack.h"
+#include <string>
 
 using namespace std;
 
-void StaticStack::Push(int v)
+void StaticStack::Push(string v)
 {
     if (Top < (5 - 1))
     {
@@ -15,10 +16,11 @@ void StaticStack::Push(int v)
         cout << "La pila esta llena";
 }
 
-void StaticStack::Pop()
+string StaticStack::Pop()
 {
     if (!IsEmpty()) {
         Top--;
+        return StacticStackArray[Top];
     }
     else {
         cout << "La pila esta vacia";

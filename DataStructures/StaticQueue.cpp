@@ -2,11 +2,16 @@
 #include "StaticQueue.h"
 using namespace std;
 
-void StaticQueue::Push(int v)
+bool StaticQueue::IsEmpty()
+{
+    return this->back < this->front;
+}
+
+void StaticQueue::Push(PointerNode node)
 {
     if (back < 5 - 1) {
         ++back;
-        StaticQueueArray[back] = v;
+        StaticQueueArray[back] = node;
 
     }
     else {
@@ -14,10 +19,11 @@ void StaticQueue::Push(int v)
     }
 }
 
-void StaticQueue::Pop()
+PointerNode StaticQueue::Pop()
 {
     if (!IsEmpty()) {
         front++;
+        return StaticQueueArray[front - 1];
     }
     else {
         cout << "La cola esta vacia";
@@ -26,7 +32,7 @@ void StaticQueue::Pop()
 
 void StaticQueue::Display() {
     for (int i = front; i < back + 1; i++) {
-        cout << StaticQueueArray[i] << "->" << endl;
+       // cout << StaticQueueArray[i] << "->" << endl;
     }
 
     if (IsEmpty()) {
